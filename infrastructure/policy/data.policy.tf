@@ -96,21 +96,5 @@ data "azurerm_storage_account" "anoa_hub_storage" {
   resource_group_name = "anoa-eus-hub-core-prod-rg"
 }
 
-data "alz_archetype_keys" "this" {
-  base_archetype = var.base_archetype
-}
-
-data "alz_archetype" "this" {
-  id = var.id
-  defaults = {
-    location                           = var.default_location
-    log_analytics_workspace_id         = data.azurerm_log_analytics_workspace.anoa_laws.id
-    private_dns_zone_resource_group_id = data.azurerm_resource_group.anoa_private_dns_zone.id
-  }
-  display_name                 = var.display_name
-  base_archetype               = var.base_archetype
-  parent_id                    = local.parent_management_group_name
-  policy_assignments_to_modify = var.policy_assignments_to_modify
-}
 
 

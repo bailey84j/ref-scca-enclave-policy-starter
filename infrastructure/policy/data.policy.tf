@@ -26,6 +26,10 @@ data "azurerm_management_group" "transport" {
   name = "transport"
 }
 
+data "azurerm_management_group" "devsecops" {
+  name = "devsecops"
+}
+
 data "azurerm_management_group" "security" {
   name = "security"
 }
